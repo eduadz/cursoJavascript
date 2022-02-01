@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de estrangeiro</title>
+    <style>
+        body {
+            font: normal 10pt Arial;
+        }
+        input {
+            font: normal 10pt Arial;
+            width: 75px;
+        }
+    </style>
+</head>
+<body>
+    Digite o país em que você vive: <input type="text" name="pais" id="pais">
+    <input type="button" value="verificar" onclick="verificar()">
+    <div id="res"></div>
+    <script>
+        function verificar(pais) {
+            var txtp = document.querySelector("input#pais")
+            var res = document.querySelector("div#res")
+            var pais = txtp.value
+            var paism = pais.toUpperCase() //Para reconhecer letras AsSiM
+            res.innerHTML = `<p>Você vive atualmente no país ${pais}.</p>`
+            if (paism != 'BRASIL'){
+                res.innerText += 'Você é estrangeiro!'
+                res.style.background = 'white'
+                res.style.color = 'black'
+
+            } else{
+                res.innerText += 'Você é brasileiro!'
+                res.style.background = 'green'
+                res.style.color = 'yellow'
+            }
+            res.innerText += '\nTenha um belo dia!'
+        }
+
+        
+
+    </script>
+</body>
+</html>
